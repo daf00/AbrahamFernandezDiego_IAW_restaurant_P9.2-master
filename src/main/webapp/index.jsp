@@ -41,7 +41,7 @@
 
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="http://localhost:8080">Inicio<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="http://localhost:8080/index.jsp">Inicio<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="test">Enlace 1</a>
@@ -49,17 +49,17 @@
             <%--<li class="nav-item">--%>
             <%--<a class="nav-link" href="test">Enlace 2</a>--%>
             <%--</li>--%>
-        </ul>
+
 
         <%
             Users user = (Users) session.getAttribute("loginUsr");
             if (user != null) {
-                out.println("<li class=\"nav-item active\"><a> class=\"nav-item\">Usuario: " + user.getUSU_NOM("userNom")+"</a>");
-                out.println("'<a href=loginForm.jsp>Logout</a></li>");
+                out.println("<li class=\"nav-item\"><a class=\"nav-link\">Usuario: " +  user.getUSU_NOM("userNom") + "</a></li>");
+                out.println("<li class=\"nav-item\"><a class=\"nav-link\" href=loginForm.jsp>Logout</a></li>");
           }
         %>
                <%--loginForm.jsp?logOut=out--%>
-
+        </ul>
         <p>&nbsp&nbsp</p><p>&nbsp&nbsp</p><p>&nbsp&nbsp</p><p>&nbsp&nbsp</p><p>&nbsp&nbsp</p>
         <p>&nbsp&nbsp</p><p>&nbsp&nbsp</p><p>&nbsp&nbsp</p><p>&nbsp&nbsp</p><p>&nbsp&nbsp</p>
         <form class="form-inline my-2 my-lg-0" method="get" action="index.jsp">
