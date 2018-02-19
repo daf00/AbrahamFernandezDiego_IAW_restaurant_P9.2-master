@@ -31,7 +31,7 @@
 
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="http://localhost:8080">Inicio<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="http://localhost:8080/index.jsp">Inicio<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="test">Enlace 1</a>
@@ -39,22 +39,17 @@
             <%--<li class="nav-item">--%>
             <%--<a class="nav-link" href="test">Enlace 2</a>--%>
             <%--</li>--%>
+
+
+            <%
+                Users user = (Users) session.getAttribute("loginUsr");
+                if (user != null) {
+                    out.println("<li class=\"nav-item\"><a class=\"nav-link\">Usuario: " +  user.getUSU_NOM("userNom") + "</a></li>");
+                    out.println("<li class=\"nav-item\"><a class=\"nav-link\" href=/logout>Logout</a></li>");
+                }
+            %>
+            <%--loginForm.jsp?logOut=out--%>
         </ul>
-
-        <%
-            Users user = (Users) session.getAttribute("chkUsu");
-            if (user != null){
-                out.println("Usuario: " + user.getUSU_NOM("userNom"));
-            } else {
-                out.println("<form class=\"form-inline my-2 my-lg-0\" method=\"post\" action=\"logIn\">\n" +
-                        "            <input class=\"form-control mr-sm-2\" name=\"userLogin\" type=\"text\" placeholder=\"User\">\n" +
-                        "            <input class=\"form-control mr-sm-2\" name=\"userPwd\" type=\"password\" placeholder=\"Password\">\n" +
-                        "\n" +
-                        "            <button type=\"submit\" href=\"logIn\">Login</button>                <!-- class=\"btn btn-outline-success my-2 my-sm-0\" -->\n" +
-                        "        </form>");
-            }
-        %>
-
         <p>&nbsp&nbsp</p><p>&nbsp&nbsp</p><p>&nbsp&nbsp</p><p>&nbsp&nbsp</p><p>&nbsp&nbsp</p>
         <p>&nbsp&nbsp</p><p>&nbsp&nbsp</p><p>&nbsp&nbsp</p><p>&nbsp&nbsp</p><p>&nbsp&nbsp</p>
         <form class="form-inline my-2 my-lg-0" method="get" action="index.jsp">

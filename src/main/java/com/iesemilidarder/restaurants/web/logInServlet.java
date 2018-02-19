@@ -51,6 +51,9 @@ public class logInServlet extends HttpServlet {
                 request.getRequestDispatcher("index.jsp").forward(request,response);
                 response.sendRedirect("index.jsp");
             }
+            else{
+                request.getRequestDispatcher("loginForm.jsp").forward(request,response);
+            }
         } catch (Exception e) {
             out.println(e.toString());
         }
